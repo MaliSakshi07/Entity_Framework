@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Database_First_Approch_EF.Models.Employee_Details>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.Raw(TempData["InsertMessage"])
+@Html.Raw(TempData["UpdateMessage"])
+@Html.Raw(TempData["DeleteMessage"])
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_dept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_salary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_dept)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_salary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
